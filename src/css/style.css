@@ -1,0 +1,17 @@
+.title {
+    text-align: center;
+}
+
+/* segunda paginda */
+
+#corpoResult {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+#btnBack{
+    margin: 1.5em 0;
+}
