@@ -11,38 +11,24 @@
 
 <body>
 
-    <h1 class="title">QUIZ COM PHP</h1>
+    <div class="d-flex justify-content-center align-items-center vh-100 flex-column">
+        <h1 class="title">QUIZ COM PHP</h1>
 
-    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="row mt-3">
+            <div class="col-12 d-flex">
+                <div class="card p-3 m-2 cardbutton">
+                    <a href="./quizti.php">
+                        <h3 class="card-title">Quiz TI</h3>
+                    </a>
 
-        <form action="result.php" method="post" class="form w-50">
-
-            <label for="primeira">Qual a capital do Brasil ? </label>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" name="resu1" id="primeira">
+                </div>
+                <div class="card p-3 m-2 cardbutton">
+                    <a href="">
+                        <h3 class="card-title">Quiz Geral</h3>
+                    </a>
+                </div>
             </div>
-
-            <br>
-            <br>
-
-
-            <label for="segunda">Qual é a linguagem principal usada para desenvolvimento web no lado do servidor?</label>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" name="resu2" id="segunda">
-            </div>
-
-            <br>
-            <br>
-
-            <label for="terceira">Qual animal é conhecido como "rei da selva"?</label>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" name="resu3" id="terceira">
-            </div>
-
-            <button type="submit" class="btn btn-primary w-100">Enviar</button>
-
-        </form>
-
+        </div>
 
     </div>
 

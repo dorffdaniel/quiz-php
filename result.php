@@ -7,10 +7,15 @@
         $res2 = strtolower($_POST["resu2"]);
         $res3 = strtolower($_POST["resu3"]);
 
-        if (!empty($res1) && !empty($res2) && !empty($res3)) {
-            $primeira = 'brasilia';
+        if (isset($res1) || isset($res2) || isset($res3)) {
+            header("Location: erro.php");
+            exit;
+        }
+
+        if (!empty(isset($res1)) && !empty(isset($res2)) && !empty(isset($res3))) {
+            $primeira = 'html';
             $segunda = 'php';
-            $terceira = 'leao';
+            $terceira = 'javascript';
         }
     }
 

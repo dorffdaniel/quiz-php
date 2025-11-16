@@ -2,6 +2,17 @@
     text-align: center;
 }
 
+
+#corpoTi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #7ec3e6;
+}
+
+
+
 /* segunda paginda */
 
 #corpoResult {
@@ -10,7 +21,26 @@
     justify-content: center;
     height: 100vh;
     flex-direction: column;
+    background-color: rgb(55, 56, 56);
 }
+
+
+.cardbutton {
+    background: #527181;
+    cursor: pointer;
+    transition: all ease .5s;
+}
+
+.cardbutton a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.cardbutton:hover {
+    transform: scale(1.1);
+    transition: all ease .5s;
+}
+
 
 #btnBack {
     margin: 1.5em 0;
