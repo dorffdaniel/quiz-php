@@ -12,6 +12,19 @@
     flex-direction: column;
 }
 
-#btnBack{
+#btnBack {
     margin: 1.5em 0;
+}
+
+#cardBody {
+    background: #e6e8e9;
+    border-radius: 1em;
+}
+
+.certo {
+    color: rgb(14, 160, 9);
+}
+
+.errado {
+    color: rgb(202, 22, 22);
 }
