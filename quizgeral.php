@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -14,28 +14,26 @@
     <div class="container">
         <div class="row  ">
             <div class="col-12 d-flex justify-content-center align-items-center flex-column">
-                <h3 class="mb-4">Bem vindo ao Quiz Ti</h3>
+                <h3 class="mb-4">Bem vindo ao Quiz Geral</h3>
                 <form action="./result.php" method="post" class="form w-50 text-center">
 
-                    <input type="text" name="opc1" value="1" class="d-none">
+                    <input type="text" name="opc2" value="2" class="d-none">
 
-
-                    <label for="primeira">Qual linguagem é usada para estruturar páginas na web? </label>
+                    <label for="primeira">Qual planeta é conhecido como o "planeta vermelho"?</label>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="resu1" id="primeira">
+                        <input type="text" class="form-control" name="resu4" id="primeira">
                     </div>
 
-                    <label for="segunda" class="mt-3">Qual é a linguagem principal usada para desenvolvimento web no
-                        lado do
-                        servidor?</label>
+                    <label for="segunda" class="mt-3">Qual animal é considerado o “rei da selva”?</label>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="resu2" id="segunda">
+                        <input type="text" class="form-control" name="resu5" id="segunda">
                     </div>
 
-                    <label for="terceira" class="mt-3">Qual linguagem é conhecida por rodar no navegador?</label>
+                    <label for="terceira" class="mt-3">Qual metal é líquido à temperatura ambiente?</label>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="resu3" id="terceira">
+                        <input type="text" class="form-control" name="resu6" id="terceira">
                     </div>
+
 
                     <div class="row">
                         <div class="col-12 d-flex">

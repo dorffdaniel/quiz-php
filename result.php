@@ -1,46 +1,100 @@
  <?php
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-        // strtolower serve para transforma tudo em minuscula
-        $res1 = strtolower($_POST["resu1"]);
-        $res2 = strtolower($_POST["resu2"]);
-        $res3 = strtolower($_POST["resu3"]);
-
-        if (isset($res1) || isset($res2) || isset($res3)) {
-            header("Location: erro.php");
-            exit;
-        }
-
-        if (!empty(isset($res1)) && !empty(isset($res2)) && !empty(isset($res3))) {
+    function verificarRespotas($res1, $res2, $res3)
+    {
+        if (!empty($res1) && !empty($res2) && !empty($res3)) {
             $primeira = 'html';
             $segunda = 'php';
             $terceira = 'javascript';
+            $quart = 'marte';
+            $quint = 'leao';
+            $sext = 'mercurio';
         }
+
+
+        $campos = [$res1, $res2, $res3];
+        $cont = 0;
+
+        foreach ($campos as $valores) {
+            if ($valores == $primeira || $valores == $quart) {
+                $cont += 10;
+            } else if ($valores == $segunda || $valores == $quint) {
+                $cont += 10;
+            } else if ($valores == $terceira || $valores == $sext) {
+                $cont += 10;
+            }
+        }
+
+        if ($cont == 30) {
+            $msg = "SUPER INTELIGENTE";
+        } else if ($cont == 20) {
+            $msg = "FALTOU APENAS UMA";
+        } else if ($cont == 10) {
+            $msg = "UM POUCO MAL EM ";
+        } else {
+            $msg = "NENHUMA EM ...";
+        }
+
+
+        return [
+            "primeira" => $primeira,
+            "segunda"  => $segunda,
+            "terceira" => $terceira,
+            "quarta" => $quart,
+            "quinta" => $quint,
+            "sexta" => $sext,
+            "cont"     => $cont,
+            "msg"      => $msg
+        ];
     }
 
-    // mandei tudo para um array e depois fiz um laço verificando as respostas 
-    $campos = [$res1, $res2, $res3];
-    $cont = 0;
 
-    foreach ($campos as $valores) {
-        if ($valores == $primeira) {
-            $cont += 10;
-        } else if ($valores == $segunda) {
-            $cont += 10;
-        } else if ($valores == $terceira) {
-            $cont += 10;
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+
+
+        if (isset($_POST['opc1'])) {
+
+            // strtolower serve para transforma tudo em minuscula
+            $res1 = strtolower($_POST["resu1"]);
+            $res2 = strtolower($_POST["resu2"]);
+            $res3 = strtolower($_POST["resu3"]);
+
+
+            if (empty($res1) || empty($res2) || empty($res3)) {
+                header("Location: erro.php");
+                exit;
+            }
+
+            $dados = verificarRespotas($res1, $res2, $res3);
+
+            $primeira = $dados['primeira'];
+            $segunda = $dados['segunda'];
+            $terceira = $dados['terceira'];
+            $cont = $dados['cont'];
+            $msg = $dados['msg'];
+        } else if (isset($_POST['opc2'])) {
+
+            $txt = 'opcao 2';
+
+
+            $res4 = strtolower($_POST["resu4"]);
+            $res5 = strtolower($_POST["resu5"]);
+            $res6 = strtolower($_POST["resu6"]);
+
+            if (empty($res4) || empty($res5) || empty($res6)) {
+                header("Location: erro.php");
+                exit;
+            }
+
+            $dados = verificarRespotas($res4, $res5, $res6);
+
+            $quart = $dados['quarta'];
+            $quint = $dados['quinta'];
+            $sext = $dados['sexta'];
+            $cont = $dados['cont'];
+            $msg = $dados['msg'];
         }
-    }
-
-    if ($cont == 30) {
-        $msg = "SUPER INTELIGENTE";
-    } else if ($cont == 20) {
-        $msg = "FALTOU APENAS UMA";
-    } else if ($cont == 10) {
-        $msg = "UM POUCO MAL EM ";
-    } else {
-        $msg = "NENHUMA EM ...";
     }
 
 
@@ -63,31 +117,67 @@
 
      <div class="container">
          <div class="row">
-             <div class="col-12 d-flex justify-content-center align-items-center flex-column">
+             <div class="col-12 d-flex justify-content-center align-items-center gap-5">
                  <div class="card w-50 d-flex align-items-center flex-column justify-content-center p-2" id="cardBody">
                      <div class="card-body">
                          <h2 class="card-title mb-3 text-center">Respostas</h2>
-                         <?php if ($res1 == $primeira): ?>
-                             <p class="certo">Parabens voce acertou a primeira pergunta</p>
-                         <?php else: ?>
-                             <p class="errado">Resposta invalida, a respota correta <?php echo $primeira ?> </p>
+
+                         <?php if (isset($_POST['opc1'])): ?>
+
+
+                             <?php if ($res1 == $primeira): ?>
+                                 <p class="certo">Parabens voce acertou a primeira pergunta</p>
+                             <?php else: ?>
+                                 <p class="errado">Resposta invalida, a respota correta <?php echo $primeira ?> </p>
+                             <?php endif; ?>
+
+                             <?php if ($res2 == $segunda): ?>
+                                 <p class="certo">Parabens voce acertou a segunda </p>
+                             <?php else: ?>
+                                 <p class="errado">Resposta invalida, a respota correta é <?php echo $segunda ?> </p>
+                             <?php endif; ?>
+
+                             <?php if ($res3 == $terceira): ?>
+                                 <p class="certo">Parabens voce acertou a terceira pergunta </p>
+                             <?php else: ?>
+                                 <p class="errado">Resposta invalida, a respota correta é <?php echo $terceira ?> </p>
+                             <?php endif; ?>
+
+
+
+                         <?php else: isset($_POST['opc2']) ?>
+
+                             <?php if ($res4 == $quart): ?>
+                                 <p class="certo">Parabens voce acertou a primeira pergunta</p>
+                             <?php else: ?>
+                                 <p class="errado">Resposta invalida, a respota correta <?php echo $quart ?> </p>
+                             <?php endif; ?>
+
+                             <?php if ($res5 == $quint): ?>
+                                 <p class="certo">Parabens voce acertou a segunda </p>
+                             <?php else: ?>
+                                 <p class="errado">Resposta invalida, a respota correta é <?php echo $quint ?> </p>
+                             <?php endif; ?>
+
+                             <?php if ($res6 == $sext): ?>
+                                 <p class="certo">Parabens voce acertou a terceira pergunta </p>
+                             <?php else: ?>
+                                 <p class="errado">Resposta invalida, a respota correta é <?php echo $sext ?> </p>
+                             <?php endif; ?>
+
                          <?php endif; ?>
 
-                         <?php if ($res2 == $segunda): ?>
-                             <p class="certo">Parabens voce acertou a segunda </p>
-                         <?php else: ?>
-                             <p class="errado">Resposta invalida, a respota correta é <?php echo $segunda ?> </p>
-                         <?php endif; ?>
-
-                         <?php if ($res3 == $terceira): ?>
-                             <p class="certo">Parabens voce acertou a terceira pergunta </p>
-                         <?php else: ?>
-                             <p class="errado">Resposta invalida, a respota correta é <?php echo $terceira ?> </p>
-                         <?php endif; ?>
                      </div>
                  </div>
+
+                 <div class="card  w-25 d-flex align-items-center flex-column justify-content-center p-2 h-100">
+                     <h2>Pontos</h2>
+                     <h3 class="text-primary"> <?php echo $cont ?> </h3>
+                 </div>
              </div>
+
          </div>
+
          <div class="row mt-5">
              <div class="col-12 d-flex justify-content-center align-items-center flex-column">
                  <div class="card w-50">

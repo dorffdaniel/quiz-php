@@ -23,7 +23,7 @@
 
                 </div>
                 <div class="card p-3 m-2 cardbutton">
-                    <a href="">
+                    <a href="./quizgeral.php">
                         <h3 class="card-title">Quiz Geral</h3>
                     </a>
                 </div>
