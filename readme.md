@@ -2,6 +2,8 @@
 
 Projeto simples desenvolvido em PHP com o objetivo de praticar a sintaxe da linguagem
 
+<img src="src/img/first.png">
+
 Sobre o projeto
 
 O Quiz PHP é uma aplicação básica de perguntas e respostas que permite reforçar conhecimentos em PHP, como:
@@ -23,7 +25,7 @@ Como executar o projeto
 ```
 git clone https://github.com/dorffdaniel/quiz-php
 ```
-2- oloque a pasta do projeto em um servidor local (ex: XAMPP, WAMP ou Laragon).
+2- coloque a pasta do projeto em um servidor local (ex: XAMPP, WAMP ou Laragon).
 
 3- Inicie o servidor Apache.
 
